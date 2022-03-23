@@ -1,8 +1,8 @@
-**Update: I've seen a lot of reports that this doesn't reduce stuttering and only a few reports that it does. If it does work for you, please let me know [here](https://github.com/soupstream/EldenRingStutterFix/issues/4).**
+**Update: I've realized that [Special K](https://discourse.differentk.fyi/t/download-special-k/1461) implements these same fixes (and more) for Elden Ring. I'll keep this repo up but I recommend using Special K instead.**
 
 # EldenRingStutterFix
 
-This is an unofficial and **experimental** patch for Elden Ring on PC which aims to fix the stuttering that a lot of players have experienced. It implements these VKD3D fixes natively in D3D12:
+This is an unofficial and **experimental** patch for Elden Ring on PC which aims to fix certain kinds of stuttering that some players have experienced. It implements these VKD3D fixes natively in D3D12:
 
 * https://github.com/HansKristian-Work/vkd3d-proton/commit/54fbadcc9405841cc018210ba6d1045e71f405c0
 * https://github.com/HansKristian-Work/vkd3d-proton/commit/9817c52d2441bc6231afd2e5c472c7e7210a72c9
