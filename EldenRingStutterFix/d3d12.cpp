@@ -398,8 +398,14 @@ HRESULT WINAPI D3D12CreateDevice_hook(IUnknown* pAdapter, D3D_FEATURE_LEVEL Mini
             DWORD OldProtection;
             VirtualProtect(vt, sizeof(void*) * 45, PAGE_READWRITE, &OldProtection);
             *pCreateCommandAllocator = ID3D12Device_hook::CreateCommandAllocator_hook;
-            *pCreateCommittedResource = ID3D12Device_hook::CreateCommittedResource_hook;
             *pCreatePipelineLibrary = ID3D12Device_hook::CreatePipelineLibrary_hook;
+
+            // check whether D3D12_HEAP_FLAG_CREATE_NOT_ZEROED is supported
+            D3D12_FEATURE_DATA_D3D12_OPTIONS7 featureInfo;
+            if (SUCCEEDED(device->CheckFeatureSupport(D3D12_FEATURE_D3D12_OPTIONS7, &featureInfo, sizeof(featureInfo))))
+            {
+                *pCreateCommittedResource = ID3D12Device_hook::CreateCommittedResource_hook;
+            }
             VirtualProtect(vt, sizeof(void*) * 45, OldProtection, &OldProtection);
         }
 
